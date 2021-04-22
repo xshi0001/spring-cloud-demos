@@ -1,0 +1,23 @@
+server:
+  port: 7001
+
+
+eureka:
+  instance:
+    hostname: eureka7001.com # eureka服务端的实例
+  server:
+    # 关闭自我保护机制，保证不可用服务及时被剔除
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 20000
+  client:
+    #表示是否将自己注册进EurekaServer 默认为true
+    register-with-eureka: false
+    ##是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+      #入住地址
+      #      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+

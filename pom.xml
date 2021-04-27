@@ -15,6 +15,13 @@
         <module>cloud-eureka-server7001</module>
         <module>cloud-eureka-server7002</module>
         <module>cloud-provider-payment8002</module>
+        <module>cloud-provider-payment8004</module>
+        <module>cloud-consumer-zkorder80</module>
+        <module>cloud-provider-consul-payment8006</module>
+        <module>cloud-consumer-consul-order80</module>
+        <module>cloud-gateway-gateway9527</module>
+        <module>cloud-gateway-zuul9528</module>
+        <module>cloud-consumer-feign-order80</module>
     </modules>
     <packaging>pom</packaging>
 

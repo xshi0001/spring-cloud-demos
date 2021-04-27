@@ -1,4 +1,4 @@
-package com.atguigu.springcloud.control;
+package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entity.CommonResult;
 import com.atguigu.springcloud.entity.Payment;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -19,10 +20,8 @@ public class PaymentController {
     private PaymentService paymentService;
     @Value("${server.port}")
     private String serverPort;
-
     @Resource
     private DiscoveryClient discoveryClient;
-
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
@@ -58,6 +57,21 @@ public class PaymentController {
             log.info(instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
         });
         return this.discoveryClient;
+    }
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLb() {
+        return serverPort;
+    }
+
+    /**
+     *
+     * 测试接口超时
+     */
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeOut(){
+        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+        return serverPort;
     }
 
 }

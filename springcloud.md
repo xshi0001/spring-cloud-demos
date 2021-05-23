@@ -195,6 +195,17 @@ zuul 1.x 是基于servlet2.0的阻塞式的网络IO网络框架（每一个servl
 - Filter-过滤（spring中GatewayFilter实例，使用过滤器，请求被路由前或者之后对Http请求和返回的Http响应进行修改），分为"pre"和"post"阶段，种类分为GatewayFilter(单一的)和
   Global Filter(全局的)
 
+##  服务配置
+
+Config
+Bus
+
+## stream
+
+消息驱动
+
+有没有一种新的技术诞生,jiej
+
 
 
 

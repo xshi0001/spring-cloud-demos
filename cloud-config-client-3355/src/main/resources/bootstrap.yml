@@ -1,0 +1,45 @@
+server:
+  port: 3355
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: main # 分支名称
+      name: config # 配置文件名称
+      profile: dev # 读取后缀名称
+      uri: http://localhost:3344 #配置中心地址
+      # 上述综合：main分支上config-dev.yml 配置被读取 http://config-3344.com:3344/main/config-dev.yml
+  rabbitmq:
+    host: 192.168.130.237
+    port: 15672
+    username: admin
+    password: admin
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+
+# 需求git远程仓库上面运维工程师变更配置，通知所有的client，并且client不需要重新启动
+# =========================  动态刷新配置，要添加actuator依赖 =========================
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+####  需要运维工程师，手动curl -X POST http://localhost:3355/actuator/refresh， 通知更新
+
+# 可否广播通知，一次通知，处处生效
+
+# 手动+ 自动都需要的场景，有的服务器还是需要旧版本的服务配置的 ---》SpringCloud bus +rabbitmq
+
+
+
+# 可否定点更新某一些服务，而不是一次更新，大家都更新
+
+

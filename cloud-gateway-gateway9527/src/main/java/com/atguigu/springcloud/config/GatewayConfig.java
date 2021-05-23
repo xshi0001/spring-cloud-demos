@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * TODO
+ * 网关配置
  *
  * @author JClearLove
  * @date 2021/04/26 06:32

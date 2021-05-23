@@ -25,7 +25,7 @@ public class MyLogGatewayFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         log.info("come in MyLogGatewayFilter:" + new Date());
         String useName = exchange.getRequest().getQueryParams().getFirst("username");
-        if ( Objects.isNull(useName)) {
+        if (Objects.isNull(useName)) {
             log.info("用户名无效");
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             return exchange.getResponse().setComplete();

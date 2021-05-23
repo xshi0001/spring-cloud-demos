@@ -62,19 +62,21 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/lb")
-    public String getPaymentLb(){
+    public String getPaymentLb() {
         return serverPort;
     }
 
 
-
     /**
-     *
-     * 测试接口超时
+     * 测试接口超时,服務提供超過3s
      */
     @GetMapping(value = "/payment/feign/timeout")
-    public String paymentFeignTimeOut(){
-        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+    public String paymentFeignTimeOut() {
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 

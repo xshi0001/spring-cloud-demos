@@ -70,7 +70,7 @@ public class PaymentController {
      */
     @GetMapping(value = "/payment/feign/timeout")
     public String paymentFeignTimeOut(){
-        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+        try { TimeUnit.SECONDS.sleep(7); } catch (InterruptedException e) { e.printStackTrace(); }
         return serverPort;
     }
 

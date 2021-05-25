@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+
+management: # 暴露bus,刷新配置的端点
+  endpoints:
+    web:
+      exposure:
+        include: '*'

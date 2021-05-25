@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: cloud-payment-service  #微服务名称，不要轻易修改
+    zipkin:
+      base-url: http://192.168.130.237:9411
+      sleuth:
+        sampler:
+        probability: 1 # 采样率介于0-1,1表示全部
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver

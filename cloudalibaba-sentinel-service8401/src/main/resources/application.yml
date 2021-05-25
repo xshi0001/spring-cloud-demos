@@ -1,0 +1,41 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery: # 换成nginx的80端口做集群
+        server-addr: 192.168.130.237:8848 #配置Nacos地址
+    sentinel:
+      transport:
+        dashboard: 192.168.130.238:8858 # 配置Sentinel dashborad 地址
+        # 默认为8719，如果被占用会自动+1，直到找到为止
+        port: 8719
+        client-id: 192.168.130.238
+
+
+# 其实本质问题就是： 目前我用的苏研云无法访问我的ip，我是通过vpn方式连接的，需要把我的应用部署到苏研云服务上
+# 容器里面的sentinel无法监控本地windows的服务
+##  Failed to fetch metric from <http://169.254.13.92:8719/
+
+## 首先169.254.13.92 这个是我windows的ip,而Sentinel的服务是放在docker容器里面，
+
+## 为什么会访问这个ip 因为本地调试时启动了微服务cloudalibaba-sentinel-service，然后注册到了这个Sentinel里
+
+
+## 在本地应用的时候指定了一个叫做8719的端口号，这个端口号会用本地应用的本地ip加端口号形成一个http服务，
+##  然后我在云服务器上配置的sentinel dashboard会往这个ip+端口发请求！很显然这个请求会失败，因为用的本地的ip
+
+## 参考 https://github.com/alibaba/spring-cloud-alibaba/issues/1220
+
+management:  # 监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+## 要保证应用也是docker启动的，docker之间是通过容器名寻址的，用docker-compose启动的话，
+##  指定容器名和主机名，并在配置的时候用容器名代替ip。如果是k8s的话，需要新建一个服务来暴露端口，配置的时候用服务暴露出来的ip

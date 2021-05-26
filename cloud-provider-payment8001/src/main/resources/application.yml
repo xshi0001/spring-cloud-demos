@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-payment-service  #微服务名称，不要轻易修改
+    name: cloud-payment-com.atguigu.springcloud.service  #微服务名称，不要轻易修改
     zipkin:
       base-url: http://192.168.130.237:9411
       sleuth:

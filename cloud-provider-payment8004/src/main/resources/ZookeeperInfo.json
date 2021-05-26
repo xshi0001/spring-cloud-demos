@@ -1,5 +1,5 @@
 {
-  "name": "cloud-payment-service",
+  "name": "cloud-payment-com.atguigu.springcloud.service",
   "id": "63e36bdd-eda6-4c54-8fa3-58e31f11bc2a",
   "address": "LAPTOP-L904TFAI",
   "port": 8004,
@@ -7,7 +7,7 @@
   "payload": {
     "@class": "org.springframework.cloud.zookeeper.discovery.ZookeeperInstance",
     "id": "application-1",
-    "name": "cloud-payment-service",
+    "name": "cloud-payment-com.atguigu.springcloud.service",
     "metadata": {}
   },
   "registrationTimeUTC": 1619358076444,

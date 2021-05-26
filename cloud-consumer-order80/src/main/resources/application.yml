@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-order-service
+    name: cloud-order-com.atguigu.springcloud.service
     zipkin:
       base-url: http://localhost:9411
       sleuth:

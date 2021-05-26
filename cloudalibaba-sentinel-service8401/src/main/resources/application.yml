@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloudalibaba-sentinel-service
+    name: cloudalibaba-sentinel-com.atguigu.springcloud.service
   cloud:
     nacos:
       discovery: # 换成nginx的80端口做集群
@@ -22,7 +22,7 @@ spring:
 
 ## 首先169.254.13.92 这个是我windows的ip,而Sentinel的服务是放在docker容器里面，
 
-## 为什么会访问这个ip 因为本地调试时启动了微服务cloudalibaba-sentinel-service，然后注册到了这个Sentinel里
+## 为什么会访问这个ip 因为本地调试时启动了微服务cloudalibaba-sentinel-com.atguigu.springcloud.service，然后注册到了这个Sentinel里
 
 
 ## 在本地应用的时候指定了一个叫做8719的端口号，这个端口号会用本地应用的本地ip加端口号形成一个http服务，

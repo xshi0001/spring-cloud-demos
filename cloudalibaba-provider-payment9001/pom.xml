@@ -36,6 +36,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloudlearn</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-payment-service  # 服务别名，注册的zookeeper到注册中心名称
+    name: cloud-payment-com.atguigu.springcloud.service  # 服务别名，注册的zookeeper到注册中心名称
   cloud:
     zookeeper:
       connect-string: 192.168.130.169:2181

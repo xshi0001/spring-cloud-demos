@@ -22,13 +22,18 @@ public class RateLimitController {
     }
 
     /**
-     *
      * 备用方法兜底
      */
     public CommonResult handlerException(BlockException exception) {
         return new CommonResult(444, exception.getClass().getCanonicalName() + "\t 服务不可用");
     }
 
+    /**
+     * blockHandlerClass兜底类
+     * blockHandler 兜底方法
+     *
+     * @return
+     */
     @GetMapping("/rateLimit/customerBlockHandler")
     @SentinelResource(value = "customerBlockHandler",
             blockHandlerClass = CustomerBlockHandler.class,

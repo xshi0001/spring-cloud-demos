@@ -7,13 +7,23 @@ spring:
   cloud:
     nacos:
       discovery: # 换成nginx的80端口做集群
-        server-addr: 192.168.130.237:8848 #配置Nacos地址
+        server-addr: 192.168.130.237:80 #配置Nacos地址  192.168.130.237:8848 单机
     sentinel:
       transport:
         dashboard: 192.168.130.238:8858 # 配置Sentinel dashborad 地址
         # 默认为8719，如果被占用会自动+1，直到找到为止
         port: 8719
         client-id: 192.168.130.238
+
+      # 流控规则持久化到nacos
+      datasource:
+        dsl:
+          nacos:
+            server-addr: 192.168.130.237:80
+            data-id: ${spring.application.name}
+            group-id: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 
 
 # 其实本质问题就是： 目前我用的苏研云无法访问我的ip，我是通过vpn方式连接的，需要把我的应用部署到苏研云服务上
@@ -30,7 +40,7 @@ spring:
 
 ## 参考 https://github.com/alibaba/spring-cloud-alibaba/issues/1220
 
-management:  # 监控
+management: # 监控
   endpoints:
     web:
       exposure:

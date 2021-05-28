@@ -7,7 +7,8 @@ spring:
   cloud:
     alibaba:
       seata:
-        # 自定义事务组名称需要与seata-server中的对应
+        # 自定义事务组名称需要与seata-server中的对应 my_test_tx_group是默认有的，没有修改。
+        # my_test_tx_group是默认有的，没有修改。增加分布式事务分组nacos_service_tx_group、nacos_consumer_tx_group
         tx-service-group: fsp_tx_group
     nacos:
       discovery:

@@ -63,7 +63,7 @@
         <dependency>
             <groupId>org.springframework.cloudlearn</groupId>
             <artifactId>cloud-api-commons</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 </project>

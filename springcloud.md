@@ -219,7 +219,10 @@ docker部署sentinel无法监控的问题
 
 
 
-
+## seata
+分布式数据库
+搭建 https://blog.csdn.net/zhuolou1208/article/details/106733539
+参考 [分布式事务](https://www.jianshu.com/p/3ef7a3c0925a)
 
 
 

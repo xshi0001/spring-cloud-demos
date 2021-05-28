@@ -37,6 +37,8 @@
         <module>cloudalibaba-provider-payment9002</module>
         <module>cloudalibaba-sentinel-service8401</module>
         <module>cloudalibaba-seata-transaction-account8900</module>
+        <module>cloudalibaba-seata-transaction-order8901</module>
+        <module>cloudalibaba-seata-transaction-store8902</module>
     </modules>
     <packaging>pom</packaging>
 

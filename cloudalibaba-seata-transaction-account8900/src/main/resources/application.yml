@@ -7,12 +7,12 @@ spring:
   cloud:
     alibaba:
       seata:
-        # 自定义事务组名称需要与seata-server中的对应 my_test_tx_group是默认有的，没有修改。
+        # 自定义事务组名称需要与seata-server中的对应（已经上传nacos中配置）
         # my_test_tx_group是默认有的，没有修改。增加分布式事务分组nacos_service_tx_group、nacos_consumer_tx_group
         tx-service-group: my_test_tx_group
     nacos:
       discovery:
-        server-addr: 192.168.230.237:8848
+        server-addr: 192.168.130.237:8848  # docker 如果在服务器192.168.130.237这台服务器上运行，安装的话，用容器里面的地址
   datasource:
     # 当前数据源操作类型
     type: com.alibaba.druid.pool.DruidDataSource
@@ -32,3 +32,17 @@ logging:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 
+
+#  参数说明：
+#
+#-h: host，默认值 localhost
+#
+#-p: port，默认值 8848
+#
+#-g: 配置分组，默认值为 'SEATA_GROUP'
+#
+#-t: 租户信息，对应 Nacos 的命名空间ID字段, 默认值为空 ''
+
+
+## 同步服务端数到sh ${SEATAPATH}/script/config-center/nacos/nacos-config.sh -h 192.168.130.237 -p 8848 -g SEATA_GROUP
+  ## / -t 5a3c7d6c-f497-4d68-a71a-2e5e3340b3ca

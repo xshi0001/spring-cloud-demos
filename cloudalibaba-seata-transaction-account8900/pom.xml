@@ -78,6 +78,7 @@
             <groupId>org.springframework.cloudlearn</groupId>
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
